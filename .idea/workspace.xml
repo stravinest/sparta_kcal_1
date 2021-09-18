@@ -2,75 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc0de498-9247-484b-8a2a-65cdeadbbb5a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/static/index/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sparta_kcal_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sparta_kcal_1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-08-57-58.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-09-04-24.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-09-06-07.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-10-26-53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-10-50-21.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-10-58-51.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-11-24-22.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-11-24-36.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-11-24-51.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-11-25-09.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-11-51-20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-14-28-24.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-14-57-03.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-15-02-55.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-15-32-22.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-15-18-06-04.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-09-21-57.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-09-25-26.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-09-26-02.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-09-28-58.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-09-34-58.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-09-35-52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-09-36-27.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-09-42-35.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-09-42-53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-19-19-16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-19-27-02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-19-27-19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-20-19-03.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-20-19-06.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-20-19-25.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-20-19-26.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-20-19-27.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-20-19-29.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-20-19-31.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-20-21-23.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-20-26-08.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-20-53-46.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-21-05-22.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-21-22-43.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-16-22-02-08.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-00-08-43.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-00-10-19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-09-12-52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-12-19-45.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-16-13-39.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-05-02.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-06-00.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-08-30.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-12-55.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-15-27.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-19-41.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-21-45.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-25-15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-33-33.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-33-35.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-33-36.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-34-08.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-17-38-03.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-18-10-47.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/file-2021-09-17-18-18-25.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
     <envs>
@@ -97,6 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -179,7 +128,8 @@
       <workItem from="1631843769654" duration="9396000" />
       <workItem from="1631867020693" duration="2411000" />
       <workItem from="1631869469735" duration="8001000" />
-      <workItem from="1631879238699" duration="1829000" />
+      <workItem from="1631879238699" duration="2426000" />
+      <workItem from="1631887563375" duration="9180000" />
     </task>
     <servers />
   </component>
@@ -204,7 +154,7 @@
     <SUITE FILE_PATH="coverage/1_kcal$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1631687512114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sparta_kcal_1$sparta_kcal_1.coverage" NAME="sparta_kcal_1 Coverage Results" MODIFIED="1631609785574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/1_todayKcal$app.coverage" NAME="app Coverage Results" MODIFIED="1631714288447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/1_todayKcal$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1631879541954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/1_todayKcal$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1631924818893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/1_todayKcal$sparta_kcal_1.coverage" NAME="sparta_kcal_1 Coverage Results" MODIFIED="1631718639777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
