@@ -56,7 +56,8 @@
 <img src="https://user-images.githubusercontent.com/58503562/133881828-2c3c1556-6c51-4986-b0b0-586b67bdef12.PNG">
 
 
-팀원 회고록 김범수 https://velog.io/@kbs2082/%ED%95%AD%ED%95%B499-3%EA%B8%B0%EA%B0%80%EC%9E%A5-%EA%B3%A0%EB%AF%BC-%EB%A7%8E%EC%9D%B4%ED%96%88%EB%8D%98-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84
-전은규 https://velog.io/@stravinest/1stminiproject-%ED%9A%8C%EA%B3%A0
-최진식 https://velog.io/@lipton/%ED%95%AD%ED%95%B499-1%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0
-최선강
+팀원 회고록 
+<li>김범수 https://velog.io/@kbs2082/%ED%95%AD%ED%95%B499-3%EA%B8%B0%EA%B0%80%EC%9E%A5-%EA%B3%A0%EB%AF%BC-%EB%A7%8E%EC%9D%B4%ED%96%88%EB%8D%98-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84</li>
+<li>전은규 https://velog.io/@stravinest/1stminiproject-%ED%9A%8C%EA%B3%A0</li>
+<li>최진식 https://velog.io/@lipton/%ED%95%AD%ED%95%B499-1%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0</li>
+<li>최선강</li>
