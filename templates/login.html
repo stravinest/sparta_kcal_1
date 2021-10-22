@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {#    파비콘#}
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {# 파비콘 #}
+    {#<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">#}
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <meta property="og:title" content="오늘의 칼로리 - 내몸을 건강하게 관리하세요"/>
     <meta property="og:description" content="계획된 하루 먹은 칼로리 체크로 계획된 식단을 관리하세요"/>
     <meta property="og:image" content="{{ url_for('static', filename='ogimg.jpg') }}"/>
-     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
     <!-- Bulma CSS -->
@@ -35,116 +36,126 @@
      <!--벌마 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
-    <!--css-->
-    <link rel="stylesheet" href="../static/login.css" />
-
+    <!--css불러오기-->
+    <link href="{{ url_for('static', filename='login.css') }}" rel="stylesheet">
 
     <title>오늘의 칼로리 | Login</title>
 
-    <script>
-        $(document).ready(function () {
 
+    <script>
+        {# 로그인 페이지로 오면 토큰 삭제 #}
+        $(document).ready(function () {
             $.removeCookie('mytoken', {path: '/'});
         });
 
-            function enterkey() {
-        if (window.event.keyCode === 13) {
-            // 엔터키가 눌렸을 때 실행할 내용
-             sign_in();
-        }
-    }
-
-    function sign_in() {
-        let username = $("#userid").val()
-        let password = $("#userpw").val()
-
-        if (username == "") {
-            $("#help-id-login").text("아이디를 입력해주세요.")
-            alert('아이디를 입력해주세요');
-            $("#input-username").focus()
-            return;
-        } else {
-            $("#help-id-login").text("")
-        }
-
-        if (password == "") {
-            $("#help-password-login").text("비밀번호를 입력해주세요.")
-            alert('비밀번호를 입력해주세요');
-            $("#input-password").focus()
-            return;
-        } else {
-            $("#help-password-login").text("")
-        }
-
-        $.ajax({
-            type: "POST",
-            url: "/sign_in",
-            data: {
-                username_give: username,
-                password_give: password
-            },
-            success: function (response) {
-                if (response['result'] == 'success') {
-                    $.cookie('mytoken', response['token'], {path: '/'});
-                    window.location.replace("/")
-                } else {
-                    alert(response['msg'])
-                }
+        {# 엔터키가 눌렸을 때 로그인 버튼 인식 #}
+        function enterkey() {
+            if (window.event.keyCode === 13) {
+                // 엔터키가 눌렸을 때 실행할 내용
+                sign_in();
             }
-        });
-    }
+        }
+
+        {# 로그인 기능 #}
+        function sign_in() {
+            {#아이디와 비밀번호 입력값을 받는다#}
+            let username = $("#userid").val()
+            let password = $("#userpw").val()
+
+            {# 아이디 입력값 체크해서 입력값이 없으면 화면에 표시해 준다 #}
+            if (username == "") {
+                $("#help-id-login").text("아이디를 입력해주세요.")
+                alert('아이디를 입력해주세요');
+                $("#input-username").focus()
+                return;
+            } else {
+                $("#help-id-login").text("") //입력값이 있으면 표시를 안한다.
+            }
+
+            {# 비밀번호 입력값 체크해서 입력값이 없으면 화면에 표시해 준다 #}
+            if (password == "") {
+                $("#help-password-login").text("비밀번호를 입력해주세요.")
+                alert('비밀번호를 입력해주세요');
+                $("#input-password").focus()
+                return;
+            } else {
+                $("#help-password-login").text("") //입력값이 있으면 표시를 안한다.
+            }
+
+            {# 로그인 기능. 입력한 아이디, 비밀번호 서버로 보내기 #}
+            $.ajax({
+                type: "POST",
+                url: "/sign_in",
+                data: {
+                    username_give: username,
+                    password_give: password
+                },
+                {# 로그인이 검증 되면 되면 쿠키 토큰값을 받는다. 페이지를 이동 #}
+                {#쿠키가 jwt token값을 저장하고 있음, 서버에 요청을 보낼 때마다 쿠키값이 같이 보내짐#}
+                {# 로그인이 성공하면 토큰값 저장 #}
+                success: function (response) {
+                    if (response['result'] == 'success') {
+                        $.cookie('mytoken', response['token'], {path: '/'});
+                        window.location.replace("/")
+                    } else {
+                        alert(response['msg'])
+                    }
+                }
+            });
+        }
 
 
     </script>
 
-</head>
-<body>
+    </head>
 
-{#헤드#}
-    <section class="hero is-success">
-        <div class="hero-body">
-            <div class="logo-background">
-            </div>
-            <p class="title">
-                오늘의 칼로리
-            </p>
-            <p class="subtitle">
-                Write your Kcal
-            </p>
-        </div>
-    </section>
+    <body>
+
+        {#헤드#}
+            <section class="hero is-success">
+                <div class="hero-body">
+                    <div class="logo-background">
+                    </div>
+                    <p class="title">
+                        오늘의 칼로리
+                    </p>
+                    <p class="subtitle">
+                        Write your Kcal
+                    </p>
+                </div>
+            </section>
 
 
-{#로그인#}
-    <div class="login">
-        <div class="inner">
-            <div class="id-section">
-                <label for="userid"></label>
-                <span>아이디</span>
-                <input id="userid" type="text" class="id" placeholder="아이디" onkeyup="enterkey()"/>
-                <i class="far fa-user"></i>
+        {#로그인#}
+            <div class="login">
+                <div class="inner">
+                    <div class="id-section">
+                        <label for="userid"></label>
+                        <span>아이디</span>
+                        <input id="userid" type="text" class="id" placeholder="아이디" onkeyup="enterkey()"/> {# 키를 누를 때 enterkey() 함수 인식 #}
+                        <i class="far fa-user"></i>
+                    </div>
+                    <div class="pw-section">
+                        <label for="userpw"></label>
+                        <span>비밀번호</span>
+                        <i class="fas fa-lock"></i>
+                        <input id="userpw" type="password" class="pw" placeholder="비밀번호" onkeyup="enterkey()"/> {# 키를 누를 때 enterkey() 함수 인식 #}
+                    </div>
+                    <div class="info">
+                        <p id="help-id-login"></p>
+                        <p id="help-password-login" ></p>
+                    </div>
+                    <div class="btn-section">
+                        <button onclick="sign_in()" href="javascript:enterkey();">로그인</button> {# 클릭과 엔터를 누르면 로그인 버튼 인식한다. #}
+                    </div>
+                </div>
             </div>
-            <div class="pw-section">
-                <label for="userpw"></label>
-                <span>비밀번호</span>
-                <i class="fas fa-lock"></i>
-                <input id="userpw" type="password" class="pw" placeholder="비밀번호" onkeyup="enterkey()"/>
-            </div>
-            <div class="info">
-                <p id="help-id-login"></p>
-                <p id="help-password-login" ></p>
-            </div>
-            <div class="btn-section">
-                <button onclick="sign_in()" href="javascript:enterkey();">로그인</button>
-            </div>
-        </div>
-    </div>
 
-{#회원가입#}
-    <div class="join">
-        <span>아직 회원이 아니신가요?</span>
-        <button onclick="location='/member/join'">회원가입하기</button>
-    </div>
+        {#회원가입#}
+            <div class="join">
+                <span>아직 회원이 아니신가요?</span>
+                <button onclick="location='/member/join'">회원가입하기</button> {# 회원가입 페이지로 이동한다 #}
+            </div>
 
-</body>
-</html>
+    </body>
+    </html>

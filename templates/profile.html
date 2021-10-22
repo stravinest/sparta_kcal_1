@@ -3,7 +3,7 @@
 
 <head>
     {#    파비콘#}
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <meta property="og:title" content="오늘의 칼로리 - 내몸을 건강하게 관리하세요"/>
     <meta property="og:description" content="계획된 하루 먹은 칼로리 체크로 계획된 식단을 관리하세요"/>
@@ -43,17 +43,22 @@
 
     <!-- style -->
     <style type="text/css">
-          * {
+        * {
             font-family: 'Do Hyeon', sans-serif;
             box-sizing: border-box;
         }
 
-         /*{#헤드부분#}*/
+        /*
+
+
+
+
+        {#헤드부분#}     */
         .hero {
             margin-bottom: 10px;
-            {#display: flex;#}
-            position: relative;
+        {#display: flex;#} position: relative;
         }
+
         .hero-body {
             display: flex;
             justify-content: center;
@@ -64,6 +69,7 @@
             align-items: center;
             padding: 30px 24px;
         }
+
         .logo-background {
             background-image: url("../static/kcal.png");
             background-size: cover;
@@ -72,31 +78,39 @@
             margin: auto;
             margin-bottom: 10px;
         }
+
         .logo-text {
             margin-left: 20px;
         }
+
         .hero .buttons {
             position: absolute;
             right: 10px;
             bottom: 10px;
         }
+
         .btn_mypage {
             background-color: #72a772;
         }
+
         #btn_logout {
             color: black;
         }
 
         {#프로필 수정기 입력하는 곳#}
-        /*{# 칼로리 입력기 #}*/
+        /*
+
+
+
+
+        {# 칼로리 입력기 #}     */
         .jumbotron {
-            background-color: rgba(0,0,0,0);
+            background-color: rgba(0, 0, 0, 0);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            {#border: 1px solid;#}
-            padding: 0;
+        {#border: 1px solid;#} padding: 0;
         }
 
         .text1 {
@@ -124,7 +138,7 @@
             color: #dee2e6;
         }
 
-        .btn_register{
+        .btn_register {
             width: 50%;
             padding: 10px;
             background-color: #fcc419;
@@ -135,11 +149,6 @@
             font-weight: bold;
             position: relative;
             left: 180px;
-        }
-
-        .comment {
-            color: #396270;
-            font-weight: bold;
         }
 
         #post-box {
@@ -161,23 +170,21 @@
 
         }
 
-        .comment {
-            color: blue;
-            font-weight: bold;
-        }
-
-
-        #cards-box2 {
-
-            margin: 50px 300px 0 300px;
-        }
-
         .table {
             font-size: xx-large;
             width: 80%;
             max-width: 800px;
             margin: auto;
             table-layout: fixed;
+        }
+
+        .card_img {
+            width: 300px;
+            height: 200px;
+        }
+
+        .card-body {
+            background-color: #ebf6eb;
         }
 
         #cards-box {
@@ -200,22 +207,13 @@
             font-size: xx-large;
         }
 
-        .card_img {
-            width: 300px;
-            height: 200px;
-        }
-
-        .card-body {
-            background-color: #ebf6eb;
-        }
-
         .calsum {
 
             width: 800px;
             margin: auto;
         }
 
-         #btn-post-box {
+        #btn-post-box {
             font-weight: bold;
             margin-top: 10px;
             width: 400px;
@@ -226,15 +224,15 @@
             cursor: pointer;
         }
 
-         .img_close {
-             margin-top: 3px;
+        .img_close {
+            margin-top: 3px;
             margin-left: 273px;
             width: 25px;
             height: 20px;
             position: absolute;
             visibility: hidden;
-             border-radius: 100%;
-             background-color: #ebffeb;
+            border-radius: 100%;
+            background-color: #ebffeb;
 
         }
 
@@ -247,17 +245,20 @@
         }
     </style>
     <script>
-        //let userid = '{{ userid }}'
+
+        //페이지 불러올시에 함수호출
         $(document).ready(function () {
-            listing();
-            showkcal();
-            show_food();
+            listing();  //입력 수정
+            showkcal(); //칼로리 합산
+            show_food();//아래 음식사진
         });
 
+        //오늘의칼로리 메인으로 가는함수 상단 우측 버튼 누르면 동작
         function openmain() {
             window.location.href = "/"
         }
 
+        //post-box css 상태에 따라 입력창 보여지고 버튼 입력하기 와 닫기로 변경
         function openClose() {
             if ($("#post-box").css("display") == "block") {
                 $("#post-box").hide();
@@ -268,6 +269,7 @@
             }
         }
 
+        //post-box css 상태에 따라 입력창 보여지고 버튼 수정하기 와 닫기로 변경
         function openClose2() {
             if ($("#post-box").css("display") == "block") {
                 $("#post-box").hide();
@@ -284,6 +286,7 @@
             let height = $('#height').val()
             let weight = $("#weight").val()
             let goal_cal = $("#goal_cal").val()
+            //유효성 검사 공백시 커서를 포커스 시켜줌
             if (height == "") {
                 alert("키를 입력해주세요")
                 $("#height").focus()
@@ -299,6 +302,9 @@
                 $("#goal_cal").focus()
                 return;
             }
+            //포스트 방식으로 서버 /api/profile_post 요청
+            //서버에서 받아온 userid정보 입력받은 값들과 함께 서버로 요청
+            //profile 페이지로 요청하면서 오늘의 프로필이 등록이 되었으므로 status값을 old로 변경해서 요청
             $.ajax({
                 type: "POST",
                 url: "/api/profile_post",
@@ -310,7 +316,7 @@
             });
         }
 
-        //수정
+        //프로필수정
         function adjusing() {
             let height = $('#height').val()
             let weight = $("#weight").val()
@@ -330,6 +336,8 @@
                 $("#goal_cal").focus()
                 return;
             }
+            //포스트 방식으로 서버 /api/profile_adjust 요청
+            //서버에서 받아온 userid정보 입력받은 값들과 함께 서버로 요청
             $.ajax({
                 type: "POST",
                 url: "/api/profile_adjust",
@@ -341,6 +349,9 @@
             });
         }
 
+        //입력된 프로필 리스트업
+        //GET요청으로 userid 값으로 userid에 맞는 프로필을 서버에 요청
+        //서버에서 받아온 bmi지수를 가지고 몸이 어떤상태인지 if문으로 상태값 변경하고 색깔도 변경해서 뿌려준다.
         function listing() {
             $.ajax({
                 type: "GET",
@@ -382,7 +393,9 @@
             })
         }
 
-
+        //칼로리 합산 출력
+        //id cards-box,sumcal 초기화
+        //GET요청으로 userid 값으로 userid에 맞는 칼로리 정보를 서버에 요청
         function showkcal() {
             $('#cards-box').empty()
             $('#sumcal').empty()
@@ -394,43 +407,51 @@
                 success: function (response) {
                     let date_kalsum = response['date_kalsum']
                     let goal_cal = response['goal_cal']
-                    console.log(goal_cal)
+                    //목표칼로리가 0이 아닐때 동작 -> 즉 프로필등록이 마쳤을때 동작한다.
                     if (goal_cal != "") {
-                        let goal = goal_cal[0]['goal_cal']
-
+                        let goal = goal_cal[0]['goal_cal'] //프로필은 하나만 쓸수 있기때문에 무조건 [0]번쩨
                         let userid = "{{ userid }}"
 
                         for (let i = 0; i < date_kalsum.length; i++) {
-                            let day_cal = date_kalsum[i]['total']
-                            let day = date_kalsum[i]['_id']['date']
-
+                            let day_cal = date_kalsum[i]['total']  //날짜별 합산 칼로리를 가져온다
+                            let day = date_kalsum[i]['_id']['date'] //날짜를 가져온다.
+                            //목표칼로리 보다 하루에 먹은 칼로리가 많다면 그 차이만큼 초과되었다는 문구를 띄운다.
                             if (goal < day_cal) {
                                 let dis = parseInt(day_cal) - parseInt(goal)
                                 let temp_html = `<div class="calsum">
   <div class="container">
-    <p class="profile_text">${day} ${userid}님의 총 섭취 칼로리는 <span style="color: #fcc419">${day_cal} </span> 입니다.!</p>
+    <p class="profile_text">${day}</p><p> ${userid}님의 총 섭취 칼로리는 <span style="color: #fcc419">${day_cal} </span> 입니다.</p>
 <p class="profile_text">목표칼로리인 ${goal} 보다 ${dis} <span style="color: red">초과 되었습니다.</span></p>
-
+<br>
   </div>
 </div>
                         `
                                 $('#sumcal').append(temp_html)
-                            } else {
+                            } else if (goal > day_cal) {//목표칼로리 보다 하루에 먹은 칼로리가 낮다면
                                 let temp_html = `<div class="calsum">
   <div class="container">
-    <p class="profile_text" >${day} ${userid}님의 총 섭취 칼로리는 <span style="color: #fcc419">${day_cal} </span> 입니다.!</p>
+    <p class="profile_text" >${day}</p><p> ${userid}님의 총 섭취 칼로리는 <span style="color: #fcc419">${day_cal} </span> 입니다.</p>
 <p class="profile_text">목표칼로리인 ${goal} 보다 <span style="color: #7ac07a">낮습니다.</span> </p>
-
+<br>
   </div>
 </div>
                         `
+                                $('#sumcal').append(temp_html)
 
+                            } else {//목표칼로리 보다 하루에 먹은 칼로리가 같다면
+                                let temp_html = `<div class="calsum">
+  <div class="container">
+    <p class="profile_text" >${day}</p><p>${userid}님의 총 섭취 칼로리는 <span style="color: #fcc419">${day_cal} </span> 입니다.</p>
+<p class="profile_text">목표칼로리인 ${goal} 와 <span style="color: orangered">같습니다..</span> </p>
+<br>
+  </div>
+</div>
+                        `
                                 $('#sumcal').append(temp_html)
                             }
 
-                            {#$('#sumcal').append(temp_html)#}
                         }
-                    } else {
+                    } else {//목표칼로리가 0이 면 return -> 즉 프로필등록이 안되있으면 메세지 출력 안한다.
                         return
 
                     }
@@ -439,6 +460,9 @@
             })
         }
 
+        //음식사진 출력
+        //id cards-box 초기화
+        //GET요청으로 로그인 아이디를 서버에 요청에 해당 아이디에 맞는 푸드데이터를 받아온다.
         function show_food() {
             $("#cards-box").empty()
             $.ajax({
@@ -452,6 +476,8 @@
                         let food_date = foods[i]['food_date']
                         let food_kcal = foods[i]['food_kcal']
                         let file = foods[i]['file']
+                        //onclick시에 삭제 할수있는 img src="../static/img_close.png 를넣는다.
+                        //delete함수 호출 하는데 호출시에 file이름을 보낸다.
                         let temp_html = `<div class="card card_made">
                                                <img class="card-img-top card_img"
                                                     src="../static/img/${file}"
@@ -469,12 +495,16 @@
             });
         }
 
+        //로그아웃
+        //쿠키제거 후 login으로 이동
         function logout() {
             $.removeCookie('mytoken', {path: '/'});
             alert('로그아웃!')
             window.location.href = "/login"
         }
 
+        //음식사진 삭제
+        //POST요청으로 fiilname에 맞는 음식사진 삭제
         function deletefood(filename) {
             $.ajax({
                 type: "POST",
@@ -494,9 +524,12 @@
 </head>
 
 <body>{# 헤더 #}
+
+{#//오늘의 프로필 헤더부분  #}
+{#//오늘의 칼로리 버튼과 logout 버튼이 있다.#}
 <section class="hero is-success">
     <div class="hero-body">
-        <div class="logo-background"> </div>
+        <div class="logo-background"></div>
         <div class="logo-text">
             <p class="title">
                 오늘의 프로필
@@ -513,17 +546,17 @@
         <a class="button is-light" id="btn_logout" onclick="logout()">
             Log out
         </a>
-     </div>
+    </div>
 </section>
 
 
 <div class="wrap">
-
+    {#    status값 이 new인 부분 출력 : 프로필이 등록 이 안되엇을때#}
     {% if status=="new" %}
         <div class="jumbotron">
             <h1 class="display-4 text1">프로필 입력기</h1>
             <p class="lead text1">프로필이 아직 입력이 안되었습니다. 입력해주세요!</p>
-{#            <hr class="my-4">#}
+            {#            <hr class="my-4">#}
             <p class="lead">
                 <button onclick="openClose()" id="btn-post-box" type="button" class="btn btn-primary">입력하기
                 </button>
@@ -549,12 +582,11 @@
             </div>
         </div>
 
-{# 프로필 수정기 #}
+        {#    status값 이 old인 부분 출력 : 프로필 등록이 되었을때#}
     {% else %}
         <div class="jumbotron">
             <h1 class="display-4 text1">프로필 수정기</h1>
             <p class="lead text1">기존 프로필 수정가능합니다.</p>
-{#            <hr class="my-4">#}
             <p class="lead">
                 <button onclick="openClose2()" id="btn-fix-box" type="button" class="btn btn-primary">수정하기
                 </button>
@@ -584,11 +616,9 @@
     {% endif %}
 </div>
 
+{#칼로리 계산 출력#}
 <table class="table">
-
     <tbody id="tbody-box">
-
-
     </tbody>
 </table>
 
@@ -596,7 +626,7 @@
 
 </div>
 
-
+{#음식사진 출력#}
 <section class="section_card">
     <div id="cards-box" class="row row-cols-1 row-cols-md-3 g-4">
         <div class="card">

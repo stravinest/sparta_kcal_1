@@ -2,83 +2,30 @@
 <html lang="en">
 <head>
 
-    {#    파비콘#}
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-    <meta property="og:title" content="오늘의 칼로리 - 내몸을 건강하게 관리하세요"/>
-    <meta property="og:description" content="계획된 하루 먹은 칼로리 체크로 계획된 식단을 관리하세요"/>
-    <meta property="og:image" content="{{ url_for('static', filename='ogimg.jpg') }}"/>
-    <meta charset="UTF-8">
-
-    <!-- Bulma CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <!-- Font Awesome CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-     <!-- 구글폰트 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
-
-    <!--css-->
-    <link rel="stylesheet" href="../static/login.css" />
-
     <!--css-->
     {% include 'banner.html' %}
 
-    <title>오늘의 칼로리 | Login</title>
-
-    <style>
-        body {
-            min-height: 100vh;
-        }
-
-        .section {
-            padding: 1rem 1.5rem;
-            max-width: 750px;
-            margin: auto;
-        }
-
-        .is-sparta {
-            color: #e8344e !important;
-        }
-
-        .button.is-sparta {
-            background-color: #7ac07a;
-            border-color: transparent;
-            color: #fff !important;
-        }
-
-        .button.is-sparta.is-outlined {
-            background-color: transparent;
-            border-color: #7ac07a;
-            color: black !important;
-        }
-
-        .help {
-            color: gray;
-        }
-    </style>
-
     <script>
+        // 아이디 빈값, 형시 체크
         function check_dup() {
             let username = $("#input-username").val()
-            console.log(username)
+
+            // 아이디 빈값 체크
             if (username == "") {
+                // 문구 출력
                 $("#help-id").text("아이디를 입력해주세요.").removeClass("is-safe").addClass("is-danger")
                 $("#input-username").focus()
                 return;
             }
+
+            // 아이디 형식 체크
             if (!is_nickname(username)) {
                 $("#help-id").text("아이디의 형식을 확인해주세요. 영문과 숫자, 일부 특수문자(._-) 사용 가능. 2-10자 길이").removeClass("is-safe").addClass("is-danger")
                 $("#input-username").focus()
                 return;
             }
             $("#help-id").addClass("is-loading")
+
             $.ajax({
                 type: "POST",
                 url: "/member/check",
@@ -86,7 +33,7 @@
                     username_give: username
                 },
                 success: function (response) {
-
+                    // 아이디 존재 유무에 따라 다른 문구 출력
                     if (response["exists"]) {
                         $("#help-id").text("이미 존재하는 아이디입니다.").removeClass("is-safe").addClass("is-danger")
                         $("#input-username").focus()
@@ -99,23 +46,26 @@
             });
         }
 
+        // 닉네임 형식
         function is_nickname(asValue) {
             var regExp = /^(?=.*[a-zA-Z])[-a-zA-Z0-9_.]{2,10}$/;
             return regExp.test(asValue);
         }
 
+        // 비밀번호 형식
         function is_password(asValue) {
             var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*]{8,20}$/;
             return regExp.test(asValue);
         }
 
+        // 로그인 함수
         function sign_up() {
             let username = $("#input-username").val()
             let nickname = $("#input-nickname").val()
             let password = $("#input-password").val()
             let password2 = $("#input-password2").val()
-            console.log(username, password, password2)
 
+            // 아이디 중복확인 버튼 실행 유무
             if ($("#help-id").hasClass("is-danger")) {
                 alert("아이디를 다시 확인해주세요.")
                 return;
@@ -128,6 +78,8 @@
                 $("#help-password").text("비밀번호를 입력해주세요.").removeClass("is-safe").addClass("is-danger")
                 $("#input-password").focus()
                 return;
+
+                // 비밀번호 형식 확인
             } else if (!is_password(password)) {
                 $("#help-password").text("비밀번호의 형식을 확인해주세요. 영문과 숫자 필수 포함, 특수문자(!@#$%^&*) 사용가능 8-20자").removeClass("is-safe").addClass("is-danger")
                 $("#input-password").focus()
@@ -135,6 +87,8 @@
             } else {
                 $("#help-password").text("사용할 수 있는 비밀번호입니다.").removeClass("is-danger").addClass("is-success")
             }
+
+            // 비밀번호 일치 여부
             if (password2 == "") {
                 $("#help-password2").text("비밀번호를 입력해주세요.").removeClass("is-safe").addClass("is-danger")
                 $("#input-password2").focus()
@@ -156,6 +110,8 @@
                     password_give: password
                 },
                 success: function (response) {
+                    // 아이디 중복 방지를 위해 한번 더 서버에서 확인 후
+                    // 중복이면 중복 문구 출력
                     if (response["exists"]) {
                         $("#help-id").text("이미 존재하는 아이디입니다.").removeClass("is-safe").addClass("is-danger")
                         $("#input-username").focus()
@@ -163,6 +119,8 @@
                         return;
                     }
 
+                    // 닉네임 중복 방지를 위해 한번 더 서버에서 확인 후
+                    // 중복이면 중복 문구 출력
                     if (response["exists_nick"]) {
                         $("#help-nickname").text("이미 존재하는 닉네임입니다.").removeClass("is-safe").addClass("is-danger")
                         $("#input-nickname").focus()
@@ -174,6 +132,9 @@
                 }
             });
         }
+
+
+        // 닉네임 중복 여부 확인 함수
 
         function nicknamecheck() {
             let nickname = $("#input-nickname").val()
